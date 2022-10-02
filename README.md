@@ -72,6 +72,24 @@ A funding association Alphabet Soup is considering whether client organizations 
  
 ### Model Optimization
 - Target model performance: **75%**
+   ```
+     Proprocessing Optimization Attempts: 
+   - original: loss: 0.5701 - accuracy: 0.7221 
+   - bucketing application_accounts < 100: loss: 0.5694 - accuracy: 0.7227 √
+   - bucketing classification_counts < 150: loss: 0.5708 - accuracy: 0.7220 X
+   - bucketing classification_counts < 500: loss: 0.5728 - accuracy: 0.7203 X
+   - filter active status: loss: 0.6929 - accuracy: 0.5582 X
+   - bucketing affiliation_counts < 50: loss: 0.5705 - accuracy: 0.7206 X
+   - binning and encoding ASK_AMT: loss: 0.5727 - accuracy: 0.7195 X
+   - change INCOME_AMT to numeric data: loss: 0.5727 - accuracy: 0.7232 √
+
+   Model Optimization Attempts: 
+   - add hidden layer: loss: 0.5726 - accuracy: 0.7238 √
+   - change activation function to tanh: loss: 0.5685 - accuracy: 0.7243 √
+   - add neurons to hidden layers: loss: 0.5704 - accuracy: 0.7250 √
+   - decrease batch size: loss: 0.5744 - accuracy: 0.7222 X
+   - increase batch size: loss: 0.5433 - accuracy: 0.7392 √
+   ```  
   Attempts:
   
 
