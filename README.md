@@ -47,11 +47,33 @@ A funding association Alphabet Soup is considering whether client organizations 
     - **STATUS**                     binary varibale. 1 / 0.
     - **ASK_AMT**                    continuous values.
     
+ - Split data into training data and testing data.
+ - Feature scaling
+  Use standard scaler to scale the data to make sure all the feature contributes approximately proportionately to the final distance. 
 
-Compiling, Training, and Evaluating the Model
-How many neurons, layers, and activation functions did you select for your neural network model, and why?
-Were you able to achieve the target model performance?
-What steps did you take to try and increase model performance?
+### Compiling, Training, and Evaluating the Model
+- Create Neural Network Model
+  Input layer: 44 trained sample features.
+  First hidden layer: 80 neurons. Activation function:Relu.
+  Second hidden layer: 30 neurons. Activation function:Relu.
+  output layer: 1 target varible. Binary classification.
+  epochs: 50 
+  
+  ![Model Summary](https://user-images.githubusercontent.com/105877888/193480994-e3e74314-8d84-49dd-8a97-4507880137d6.png)
+  
+- Save callback files:
+  The model's weights were saved by every 5 epochs.
+  
+  ![callback](https://user-images.githubusercontent.com/105877888/193481297-a27080f8-1011-49cd-8492-6b574748ad1f.png)
+
+- Model Loss and Accuracy:
+
+  ![Screen Shot 2022-10-02 at 4 33 02 PM](https://user-images.githubusercontent.com/105877888/193481263-19fdc30d-c93a-4b9c-ae4a-cd113e89b32c.png)
+ 
+### Model Optimization
+- Target model performance: **75%**
+  Attempts:
+  
 
 
 
@@ -67,3 +89,4 @@ The results are saved to an HDF5 file (2.5 pt)
 
 ## Summary
 Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and explain your recommendation.
+More try: 
