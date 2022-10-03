@@ -80,7 +80,7 @@ A funding association Alphabet Soup is considering whether client organizations 
    - Binning **ASK_AMT**. [Considering over three quaters of requesting amount is 5000, and others are scatter over 5000 in a wide range.]
    - Changing **INCOME_AMT** to numeric data. [Considering to get more numerical features.]
 
-   The overall model  are as follows:
+   The accuracy of first epochs are as follows:
    ```
      Proprocessing Optimization Attempts: 
    - original: loss: 0.5701 - accuracy: 0.7221 
@@ -100,7 +100,7 @@ A funding association Alphabet Soup is considering whether client organizations 
    - Changing batch size. [Considering to get more information from input data.]
    - Adding additional epochs. [Considering to scan more or less samples for each epoch.]
 
-   The results are as follows:
+   The accuracy of first epochs are as follows:
    ```
    Model Optimization Attempts: 
    - adding hidden layer: loss: 0.5726 - accuracy: 0.7238 √
