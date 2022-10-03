@@ -71,40 +71,52 @@ A funding association Alphabet Soup is considering whether client organizations 
   ![Screen Shot 2022-10-02 at 4 33 02 PM](https://user-images.githubusercontent.com/105877888/193481263-19fdc30d-c93a-4b9c-ae4a-cd113e89b32c.png)
  
 ### Model Optimization
-- Target model performance: **75%**
+- Target model performance: **75%** 
+
+- Proprocessing Optimization Attempts: 
+   - Rebucketing **APPLICATION_TYPE** and **CLASSIFICATION**.[Considering getting more data back for precision.]
+   - Keep only active **STATUS**. [Considering only active status affect future funding.]
+   - Bucketing **AFFILIATION**. [Considering AFFILIATION column is not normal distributed. Data is heavily skewed.]
+   - Binning **ASK_AMT**. [Considering over three quaters of requesting amount is 5000, and others are scatter over 5000 in a wide range.]
+   - Changing **INCOME_AMT** to numeric data. [Considering to get more numerical features.]
+
+   The overall model  are as follows:
    ```
      Proprocessing Optimization Attempts: 
    - original: loss: 0.5701 - accuracy: 0.7221 
    - bucketing application_accounts < 100: loss: 0.5694 - accuracy: 0.7227 √
    - bucketing classification_counts < 150: loss: 0.5708 - accuracy: 0.7220 X
    - bucketing classification_counts < 500: loss: 0.5728 - accuracy: 0.7203 X
-   - filter active status: loss: 0.6929 - accuracy: 0.5582 X
+   - filtering active status: loss: 0.6929 - accuracy: 0.5582 X
    - bucketing affiliation_counts < 50: loss: 0.5705 - accuracy: 0.7206 X
    - binning and encoding ASK_AMT: loss: 0.5727 - accuracy: 0.7195 X
-   - change INCOME_AMT to numeric data: loss: 0.5727 - accuracy: 0.7232 √
-
-   Model Optimization Attempts: 
-   - add hidden layer: loss: 0.5726 - accuracy: 0.7238 √
-   - change activation function to tanh: loss: 0.5685 - accuracy: 0.7243 √
-   - add neurons to hidden layers: loss: 0.5704 - accuracy: 0.7250 √
-   - decrease batch size: loss: 0.5744 - accuracy: 0.7222 X
-   - increase batch size: loss: 0.5433 - accuracy: 0.7392 √
-   ```  
-  Attempts:
+   - changing INCOME_AMT to numeric data: loss: 0.5727 - accuracy: 0.7232 √
+   ```
   
+- Proprocessing Optimization Attempts: 
+   - Adding one more hidden layer. [Considering to allow neurons to train on activated input values for deep learning.]
+   - Using a different activation function. [Considering tanh function expands the data range between -1 and 1.]
+   - Adding neurons. [Considering to get more information from input data.]
+   - Changing batch size. [Considering to get more information from input data.]
+   - Adding additional epochs. [Considering to scan more or less samples for each epoch.]
 
+   The results are as follows:
+   ```
+   Model Optimization Attempts: 
+   - adding hidden layer: loss: 0.5726 - accuracy: 0.7238 √
+   - changing activation function to tanh: loss: 0.5685 - accuracy: 0.7243 √
+   - adding neurons to hidden layers: loss: 0.5704 - accuracy: 0.7250 √
+   - decreasing batch size: loss: 0.5744 - accuracy: 0.7222 X
+   - increasing batch size: loss: 0.5433 - accuracy: 0.7392 √
+   - adding epochs: loss: 0.5438 - accuracy: 0.7398 √
+   ```  
+- Final model performance
 
-
-### Create Neural Network Model
-
-Noisy variables are removed from features (2.5 pt)
-Additional neurons are added to hidden layers (2.5 pt)
-Additional hidden layers are added (5 pt)
-The activation function of hidden layers or output layers is changed for optimization (5 pt)
-The model's weights are saved every 5 epochs (2.5 pt)
-The results are saved to an HDF5 file (2.5 pt)
-
+  ![Final accuracy](https://user-images.githubusercontent.com/105877888/193483480-b5b4ea3a-966f-48b6-ae51-490f7a22e6d5.png)
 
 ## Summary
-Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and explain your recommendation.
-More try: 
+- Unfortunately, target was not achieved. Even if final model performance slightly improved. The loss and accruary was unstable. 
+- Most of columns are not in normal distribution. Standard Scaler is not the best choice to do feature scaling.
+- Hyperparameter need to be determined and finetuned.
+- Since these are labeled data, output of the model is a class, this is a supervised learning classification problem. Sample set is a large dataset. But only have 10 features. It is more suitable to process random forest algorithm. It also save time and codes.
+
