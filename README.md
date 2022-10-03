@@ -118,5 +118,5 @@ A funding association Alphabet Soup is considering whether client organizations 
 - Unfortunately, target was not achieved. Even if final model performance slightly improved. The loss and accruary was unstable. 
 - Most of columns are not in normal distribution. Standard Scaler is not the best choice to do feature scaling.
 - Hyperparameter need to be determined and finetuned.
-- Since raw data are labeled data, output of the model is a class, this can be considered as a supervised learning classification problem. There are over 34000 applicants in record, which is a large dataset. But only have 10 features. It is more suitable to work with random forest algorithm. Comparing to neural network, random forest also have a big advantage on saving time and codes.
+- Since raw data are labeled data, output of the model is a class, this can be considered as a supervised learning classification problem. There are over 34000 applicants in record, which is a large dataset. But only have 10 features. It is more suitable to work with random forest algorithm. Comparing to neural network, random forest saves time and codes. It also have a big advantage on ranking the importance of features.
 
