@@ -33,15 +33,15 @@ A funding association Alphabet Soup is considering whether client organizations 
   These are ID columns, can be removed from the input data.
 - Features: 
   **APPLICATION_TYPE**, **AFFILIATION**, **CLASSIFICATION**, **USE_CASE**, **ORGANIZATION**, **STATUS**, **INCOME_AMT**, 
-  **SPECIAL_CONSIDERATIONS**, **ASK_AMT**. These are potentionally affect applicant's use of funds.
+  **SPECIAL_CONSIDERATIONS**, **ASK_AMT**. These variables potentionally affect applicant's use of funds.
   - Categorical features:
-    - **APPLICATION_TYPE**           17 unique values, bucketing into 9. Then encoded.
-    - **AFFILIATION**                6 unique values, Encoded.
-    - **CLASSIFICATION**.            17 unique values, bucketing into 6. Then encoded.
-    - **USE_CASE**                   5 unique values, Encoded.
-    - **ORGANIZATION**               4 unique values, Encoded.
-    - **INCOME_AMT**                 9 unique values, Encoded.
-    - **SPECIAL_CONSIDERATIONS** binary variable, Y / N.
+    - **APPLICATION_TYPE** ----->  17 unique values, bucketing into 9. Then encoded.
+    - **AFFILIATION** -----> 6 unique values, Encoded.
+    - **CLASSIFICATION** -----> 17 unique values, bucketing into 6. Then encoded.
+    - **USE_CASE** -----> 5 unique values, Encoded.
+    - **ORGANIZATION** -----> 4 unique values, Encoded.
+    - **INCOME_AMT** -----> 9 unique values, Encoded.
+    - **SPECIAL_CONSIDERATIONS** -----> 2 unique values, binary variable, Y / N.
 
  - Numerical features:   
     - **STATUS**                     binary varibale. 1 / 0.
@@ -49,7 +49,7 @@ A funding association Alphabet Soup is considering whether client organizations 
     
  - Split data into training data and testing data.
  - Feature scaling
-  Use standard scaler to scale the data to make sure all the feature contributes approximately proportionately to the final distance. 
+   Use standard scaler to scale the data to make sure all the feature contributes approximately proportionately to the final distance. 
 
 ### Compiling, Training, and Evaluating the Model
 - Create Neural Network Model
@@ -118,5 +118,5 @@ A funding association Alphabet Soup is considering whether client organizations 
 - Unfortunately, target was not achieved. Even if final model performance slightly improved. The loss and accruary was unstable. 
 - Most of columns are not in normal distribution. Standard Scaler is not the best choice to do feature scaling.
 - Hyperparameter need to be determined and finetuned.
-- Since these are labeled data, output of the model is a class, this is a supervised learning classification problem. Sample set is a large dataset. But only have 10 features. It is more suitable to process random forest algorithm. It also save time and codes.
+- Since raw data are labeled data, output of the model is a class, this can be considered as a supervised learning classification problem. There are over 34000 applicants in record, which is a large dataset. But only have 10 features. It is more suitable to work with random forest algorithm. Comparing to neural network, random forest also save time and codes.
 
