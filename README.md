@@ -1,4 +1,4 @@
-# Neural_Network_Charity_Analysis
+# Neural Network Charity Analysis
 ## Overview
 A funding association Alphabet Soup is considering whether client organizations they funded would be successful if making new investments on them. To predict the successfulness of its fundation, a binary classifier was created with machine learning and neural network. For this purpose, more than 34,000 organizations funding history record were retrieved to build the neural network model. The model building including following steps:
 - Preprocess data for a Nneural network model.
